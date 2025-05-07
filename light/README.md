@@ -1,7 +1,7 @@
 
 # 人在环路的交互式交通治理
 
-1. 生成数据的过程（共4个场景：Town01、Town04、Town05、HUTB），用于大模型的训练 https://github.com/LucasAlegre/sumo-rl 、https://github.com/LucasAlegre/sumo-rl 
+1. 生成数据的过程（共 [4个场景](https://github.com/OpenHUTB/carla/tree/OpenHUTB/Co-Simulation/Sumo) ：Town01、Town04、Town05、HUTB），用于大模型的训练 https://github.com/LucasAlegre/sumo-rl 、https://github.com/LucasAlegre/sumo-rl 
 
 2. RL训练的过程为大模型提供数据；
 
