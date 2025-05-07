@@ -1,0 +1,32 @@
+\section{Introduction}
+\label{sec:intro}
+\hspace{1pc}Autonomous driving \cite{prakash2020exploring,li2024brain} is an advanced technology that intelligent vehicles perceive road environments through onboard sensor systems, autonomously plan driving routes, and control vehicles to reach predetermined destinations. 
+Its technical system generally includes three major parts: environmental perception, decision planning, and vehicle control~\cite{Zhang:2021}, involving multiple research fields such as computer science, mathematics, mechanical engineering, control science, and psychology~\cite{Codevilla:2019}.
+
+
+However, the current autonomous driving systems still suffer from insufficient interpretability due to the existence of ``black box" nature of deep learning models \cite{ohn2020learning}, greatly limiting the credibility and widespread application of various perception and decision-making methods in practical engineering. 
+Even though the use of generative adversarial networks~\cite{zugner2020adversarial} to generate explanatory data related to decision-making has been attempted, the quality of such data is often substandard, and the training process is quite challenging. 
+Furthermore, modern urban traffic conditions are characterized by high dynamics and strong uncertainty. 
+When the environment is complex, the autonomous driving system may experience performance degradation. 
+Therefore, to overcome the limitations of existing methods, there is a need to design more interpretable and robust autonomous driving systems, thereby ensuring the safety of vehicle operation.
+\begin{figure}[t]
+	\centering
+	%\fbox{\rule{0pt}{2in} \rule{0.9\linewidth}{0pt}}
+	\includegraphics[width=0.95\linewidth]{fig/brain_inspired.pdf}
+	\caption{Perception-decision network diagram based on neural pathway anatomical alignment}
+	\label{fig:fig1}
+\end{figure}
+
+In this work, we propose a novel brain-inspired driving (BID) framework inspired by brain perception and decision-making. 
+Unlike previous methods, our proposed BID expert does not rely on manually formulated rules and demonstrates strong interpretability and robustness.
+Our work involves constructing a brain-inspired perception network for extracting environmental features and a brain-inspired decision-making network for generating driving decisions for the target vehicle, in order to train the BID expert~\cite{kahn2021land}. 
+Its structure is as shown in Fig.~\ref{fig:fig1}. 
+Specifically, the brain-inspired perception network consists of a visual recognition~\cite{8574054}, a motion perception, and a multimodal fusion~\cite{liao2021statistical}. 
+The brain-inspired decision-making network comprises a decision generation~\cite{dai2013dynamic} and a decision evaluation. 
+Driving decisions encompass multiple driving actions of the target vehicle, and the BID agent directly imitates expert behavior. 
+Overall, our main contribution lies in proposing a novel brain-inspired perception model and a brain-inspired decision-making model for autonomous driving, aiming to achieve a more robust and interpretable autonomous driving system.
+
+
+
+
+

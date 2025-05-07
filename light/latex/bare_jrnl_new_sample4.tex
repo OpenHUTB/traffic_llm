@@ -1,0 +1,93 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+
+
+
+\usepackage{xcolor}
+\usepackage{verbatim} % 块注释
+
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\usepackage{xspace}
+
+% Add a period to the end of an abbreviation unless there's one
+% already, then \xspace.
+\makeatletter
+\DeclareRobustCommand\onedot{\futurelet\@let@token\@onedot}
+\def\@onedot{\ifx\@let@token.\else.\null\fi\xspace}
+
+\def\eg{\emph{e.g}\onedot} \def\Eg{\emph{E.g}\onedot}
+\def\ie{\emph{i.e}\onedot} \def\Ie{\emph{I.e}\onedot}
+\def\cf{\emph{c.f}\onedot} \def\Cf{\emph{C.f}\onedot}
+\def\etc{\emph{etc}\onedot} \def\vs{\emph{vs}\onedot}
+\def\wrt{w.r.t\onedot} \def\dof{d.o.f\onedot}
+\def\etal{\emph{et al}\onedot}
+\makeatother
+
+
+
+
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+% updated with editorial comments 8/9/2021
+
+\begin{document}
+
+\title{A Brain-Inspired \\ Perception-Decision Driving Model \\Based on Neural Pathway Anatomical Alignment}
+
+%\author{Haidong Wang, Pengfei Xiao, Ao Liu, Qia Shan, Jianhua Zhang
+%	% <-this % stops a space
+%%\thanks{This paper was produced by the IEEE Publication Technology Group. They are in Piscataway, NJ.}% <-this % stops a space
+%%\thanks{Manuscript received April 19, 2021; revised August 16, 2021.}
+%}
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2021}%
+{Shell \MakeLowercase{\textit{et al.}}: A Sample Article Using IEEEtran.cls for IEEE Journals}
+
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2021 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+\maketitle
+
+\input{sec/0_abstract}    
+\input{sec/1_intro}
+\input{sec/2_related_work}
+\input{sec/3_method}
+\input{sec/4_experiment}
+\input{sec/5_conclusion}
+
+%\section*{Acknowledgments}
+%The authors gratefully acknowledge the financial support provided by the Natural Science Foundation of Hunan Province (No.2024JJ6190), the Open Project of Xiangjiang Laboratory (No.23XJ03009), Xiangjiang Laboratory major program subproject (No.22XJ01001-2), the "Digital Intelligence +" interdisciplinary research project of Hunan University Of Technology and Business (No.2023SZJ19), Scientific research project of Hunan Provincial Department of Education (No.22B0646), Research on a new generation of brain-like intelligent computing framework based on ultra-large-scale real neural systems (24XJJCYJ01001).
+
+
+\bibliography{BID.bib}
+% 指定风格必不可少，否则参考文献都是问号
+\bibliographystyle{IEEEtran}
+
+
+\newpage
+% 作者信息
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{./fig/HaidongWang}}]{Haidong Wang}
+%	 received the B.E. degree in Computer Science and Technology from Hunan University Of Technology and Business, the M.Sc. degree in Computer Technology from the University of Chinese Academy of Sciences (UCAS), Beijing, China, in 2017, and the Ph.D. degree in Computer Science and Technology from Hunan University, Changsha, China, in 2022. Since 2022, he joined Hunan University Of Technology and Business. His current research interests include bran-like perception, autonomous driving and reinforcement learning.
+%\end{IEEEbiography}
+%
+%% 作者信息
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{./fig/PengfeiXiao}}]{Pengfei Xiao}
+%	is currently pursuing the M.Sc. degree in Computer Science and Technology from Hunan University Of Technology and Business, Changsha, China. He has a deep understanding of theoretical knowledge and tools related to brain-like computing, and has engineering experience in autonomous driving, traffic simulation. His current research interests include machine learning, multi-object tracking and reinforcement learning.
+%\end{IEEEbiography}
+
+\vfill
+
+\end{document}
+
+
