@@ -5,6 +5,10 @@ from light.sumorl.sumo_rl.agents.dqn_agent import DqnAgent
 from replay import ReplayBuffer
 import torch
 import math
+
+import json
+import os
+
 import pandas as pd
 
 FLAGS = flags.FLAGS
@@ -61,11 +65,14 @@ def main(argv):
         episode_max_waiting = []
         episode_min_waiting = []
         episode_waiting_time = []
+
         episode_records = []  # 保存当前 episode 的所有 step 信息
+        
         while not done:
             state = env.compute_state
             action = agent.select_action(state, replay_buffer.steps_done, invalid_action)
             next_state, reward, done, info = env.step(action)
+
             if info['do_action'] is None:
                 invalid_action = True
                 continue
@@ -81,6 +88,11 @@ def main(argv):
                     'prev_state': env.train_state.tolist(),
                     'next_state': next_state.tolist(),
                     'reward': reward.item() if isinstance(reward, torch.Tensor) else reward,
+
+                    'queue_length': info.get('stats', {}).get('total_waiting', 0),
+                    'waiting_time': info.get('stats', {}).get('avg_waiting_time', 0),
+                    'waiting_ratio': info.get('stats', {}).get('waiting_ratio', 0),
+
                 }
                 # 合并统计信息
                 stats = info.get('stats', {})
@@ -88,6 +100,7 @@ def main(argv):
                 episode_records.append(step_record)
 
             #保存经验
+
             replay_buffer.add(env.train_state, next_state, reward, info['do_action'])
             agent.learn()
 
@@ -132,9 +145,13 @@ def main(argv):
         prev_avg_waiting_time = avg_waiting_time
         prev_avg_queue = avg_queue
 
+
+        # 保存为JSON格式
         if episode_records:
-            df_episode = pd.DataFrame(episode_records)
-            df_episode.to_csv(f'logs/episode_{episode}_trace.csv', index=False)
+            episode_filename = f'logs/episode_{episode}_trace.json'
+            os.makedirs(os.path.dirname(episode_filename), exist_ok=True)
+            with open(episode_filename, 'w') as f:
+                json.dump(episode_records, f, indent=4)  # 格式化输出
             episode_records.clear()
 
 if __name__ == '__main__':
